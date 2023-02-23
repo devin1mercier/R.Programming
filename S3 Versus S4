@@ -1,0 +1,30 @@
+# My S3 example
+  # Creating an object:
+    me.S3 <- list(name = "Devin", age = 25, weight = 180)
+  # Specifying the object's class:
+    class(me.S3) <- "person"
+  # Testing the object with different functions:
+    mode(me.S3)
+    class(me.S3)
+    attributes(me.S3)
+
+# My S4 example:
+  # Defining the "person" class:
+    setClass("person", representation(name = "character", age = "numeric", weight = "numeric")
+  # Creating an object:
+    me.S4 <- new("person", name = "Devin", age = 25, weight = 180)
+    me.S4
+  # Testing the object with mode():
+    mode(me.S4)
+  # Checking the type of one of the object's variables:
+    mode(slot(me.S4, "age"))
+  # Testing that the reference member variable "@" works with the object:
+    me.S4@name
+  # Checking that the object is a part of the S4 system:
+    isS4(me.S4)
+
+install.packages("pryr")
+library(pryr)
+# Checking the systems of my objects:
+  otype(me.S3)
+  otype(me.S4)
